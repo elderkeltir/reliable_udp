@@ -62,9 +62,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\UDP\UDPSocketFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -92,7 +89,10 @@
     <ClCompile Include="Source\AckRange.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\reliableudp.cpp">
+    <ClCompile Include="Source\stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="reliableudp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
