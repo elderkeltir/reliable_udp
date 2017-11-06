@@ -42,12 +42,6 @@
     <ClInclude Include="MemoryStream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InputMemoryStream.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OutputMemoryStream.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="OutputMemoryBitStream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -81,12 +75,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MemoryStream.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="InputMemoryStream.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OutputMemoryStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OutputMemoryBitStream.cpp">

@@ -24,7 +24,10 @@ private:
 	PacketSequenceNumber mNextOutgoingSequenceNumber;
 	PacketSequenceNumber mDispatchedPacketCount;
 	PacketSequenceNumber mNextExpectedSequenceNumber;
-	std::vector<InFlightPacket> mInFlightPackets;
+	PacketSequenceNumber mDroppedPacketCount;
+	PacketSequenceNumber mDeliveredPacketCount;
+	const uint32_t kAckTimeout;
+	std::deque<InFlightPacket> mInFlightPackets;
 	std::deque<AckRange> mPendingAcks;
 };
 

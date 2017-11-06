@@ -2,7 +2,12 @@
 #include "AckRange.h"
 
 
-AckRange::AckRange()
+AckRange::AckRange() : mStart(0), mCount(0)
+{
+}
+
+
+AckRange::AckRange(PacketSequenceNumber start) : mStart(start), mCount(0)
 {
 }
 
@@ -12,7 +17,7 @@ AckRange::~AckRange()
 }
 
 
-inline bool AckRange::ExtendIfShould(PacketSequenceNumber inSequenceNumber)
+bool AckRange::ExtendIfShould(PacketSequenceNumber inSequenceNumber)
 {
 	if (inSequenceNumber == mStart + mCount)
 	{
@@ -45,11 +50,11 @@ void AckRange::Write(OutputMemoryBitStream& inPacket) const
 void AckRange::Read(InputMemoryBitStream& inPacket)
 {
 	inPacket.Read(mStart);
-	bool hasCount;
+	bool hasCount = false;
 	inPacket.Read(hasCount);
 	if (hasCount)
 	{
-		uint8_t countMinusOne;
+		uint8_t countMinusOne = 0;
 		inPacket.Read(countMinusOne);
 		mCount = countMinusOne + 1;
 	}
@@ -58,4 +63,14 @@ void AckRange::Read(InputMemoryBitStream& inPacket)
 		//default!
 		mCount = 1;
 	}
+}
+
+PacketSequenceNumber AckRange::GetStart() const
+{
+	return mStart;
+}
+
+PacketSequenceNumber AckRange::GetCount() const
+{
+	return mCount;
 }

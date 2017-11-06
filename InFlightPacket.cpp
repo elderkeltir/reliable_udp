@@ -2,7 +2,7 @@
 #include "InFlightPacket.h"
 
 
-InFlightPacket::InFlightPacket()
+InFlightPacket::InFlightPacket(PacketSequenceNumber secNumber) : mSequenceNumber(secNumber)
 {
 }
 
@@ -40,4 +40,14 @@ void InFlightPacket::HandleDeliverySuccess(DeliveryNotificationManager* inDelive
 	{
 		pair.second->HandleDeliverySuccess(inDeliveryNotificationManager);
 	}
+}
+
+PacketSequenceNumber InFlightPacket::GetSequenceNumber() const
+{
+	return mSequenceNumber;
+}
+
+float InFlightPacket::GetTimeDispatched() const
+{
+	return mTimeDispatched;
 }

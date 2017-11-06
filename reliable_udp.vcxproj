@@ -73,12 +73,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -155,10 +157,8 @@
     <ClInclude Include="DeliveryNotificationManager.h" />
     <ClInclude Include="InFlightPacket.h" />
     <ClInclude Include="InputMemoryBitStream.h" />
-    <ClInclude Include="InputMemoryStream.h" />
     <ClInclude Include="MemoryStream.h" />
     <ClInclude Include="OutputMemoryBitStream.h" />
-    <ClInclude Include="OutputMemoryStream.h" />
     <ClInclude Include="SocketAddress.h" />
     <ClInclude Include="SocketAddressFactory.h" />
     <ClInclude Include="SocketUtil.h" />
@@ -173,10 +173,8 @@
     <ClCompile Include="DeliveryNotificationManager.cpp" />
     <ClCompile Include="InFlightPacket.cpp" />
     <ClCompile Include="InputMemoryBitStream.cpp" />
-    <ClCompile Include="InputMemoryStream.cpp" />
     <ClCompile Include="MemoryStream.cpp" />
     <ClCompile Include="OutputMemoryBitStream.cpp" />
-    <ClCompile Include="OutputMemoryStream.cpp" />
     <ClCompile Include="reliableudp.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

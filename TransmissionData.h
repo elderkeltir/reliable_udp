@@ -1,4 +1,7 @@
 #pragma once
+
+class DeliveryNotificationManager;
+
 class TransmissionData
 {
 public:

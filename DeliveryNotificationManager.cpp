@@ -2,7 +2,7 @@
 #include "DeliveryNotificationManager.h"
 
 
-DeliveryNotificationManager::DeliveryNotificationManager()
+DeliveryNotificationManager::DeliveryNotificationManager() : kAckTimeout(60000)
 {
 }
 
@@ -17,7 +17,8 @@ InFlightPacket* DeliveryNotificationManager::WriteSequenceNumber(OutputMemoryBit
 	PacketSequenceNumber sequenceNumber = mNextOutgoingSequenceNumber++;
 	inPacket.Write(sequenceNumber);
 	++mDispatchedPacketCount;
-	mInFlightPackets.emplace_back(sequenceNumber);
+	auto inFlightPacket = InFlightPacket(sequenceNumber);
+	mInFlightPackets.emplace_back(inFlightPacket);
 	return &mInFlightPackets.back();
 }
 
@@ -33,11 +34,6 @@ bool DeliveryNotificationManager::ProcessSequenceNumber(InputMemoryBitStream& in
 		AddPendingAck(sequenceNumber);
 		return true;
 	}
-	//is sequence number < current expected? Then silently drop old packet.
-	else if (sequenceNumber < mNextExpectedSequenceNumber)
-	{
-		return false;
-	}
 	//otherwise, we missed some packets
 	else if (sequenceNumber > mNextExpectedSequenceNumber)
 	{
@@ -48,6 +44,11 @@ bool DeliveryNotificationManager::ProcessSequenceNumber(InputMemoryBitStream& in
 		//when the sender detects break it acks, it can resend
 		AddPendingAck(sequenceNumber);
 		return true;
+	}
+	//is sequence number < current expected? Then silently drop old packet.
+	else
+	{
+		return false;
 	}
 }
 
@@ -103,16 +104,14 @@ void DeliveryNotificationManager::ProcessAcks(InputMemoryBitStream& inPacket)
 				mInFlightPackets.pop_front();
 				HandlePacketDeliveryFailure(copyOfInFlightPacket);
 			}
-			else if (nextInFlightPacketSequenceNumber ==
-				nextAckdSequenceNumber)
+			else if (nextInFlightPacketSequenceNumber == nextAckdSequenceNumber)
 			{
 				HandlePacketDeliverySuccess(nextInFlightPacket);
 				//received!
 				mInFlightPackets.pop_front();
 				++nextAckdSequenceNumber;
 			}
-			else if (nextInFlightPacketSequenceNumber>
-				nextAckdSequenceNumber)
+			else if (nextInFlightPacketSequenceNumber > nextAckdSequenceNumber)
 			{
 				//somehow part of this range was already removed
 				//(maybe from timeout) check rest of range
@@ -125,7 +124,7 @@ void DeliveryNotificationManager::ProcessAcks(InputMemoryBitStream& inPacket)
 
 void DeliveryNotificationManager::ProcessTimedOutPackets()
 {
-	uint64_t timeoutTime = Timing::sInstance.GetTimeMS() - kAckTimeout;
+	uint64_t timeoutTime = std::chrono::system_clock::now().time_since_epoch().count() - kAckTimeout;
 	while (!mInFlightPackets.empty())
 	{
 		//packets are sorted, so all timed out packets must be at front
