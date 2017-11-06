@@ -92,6 +92,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -106,6 +107,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,6 +124,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,6 +143,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -153,38 +157,38 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AckRange.h" />
-    <ClInclude Include="DeliveryNotificationManager.h" />
-    <ClInclude Include="InFlightPacket.h" />
-    <ClInclude Include="InputMemoryBitStream.h" />
-    <ClInclude Include="MemoryStream.h" />
-    <ClInclude Include="OutputMemoryBitStream.h" />
-    <ClInclude Include="SocketAddress.h" />
-    <ClInclude Include="SocketAddressFactory.h" />
-    <ClInclude Include="SocketUtil.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
-    <ClInclude Include="TransmissionData.h" />
-    <ClInclude Include="UDPSocket.h" />
-    <ClInclude Include="UDPSocketFactory.h" />
+    <ClInclude Include="Headers\AckRange.h" />
+    <ClInclude Include="Headers\DeliveryNotificationManager.h" />
+    <ClInclude Include="Headers\InFlightPacket.h" />
+    <ClInclude Include="Headers\InputMemoryBitStream.h" />
+    <ClInclude Include="Headers\MemoryStream.h" />
+    <ClInclude Include="Headers\OutputMemoryBitStream.h" />
+    <ClInclude Include="Headers\UDP\SocketAddress.h" />
+    <ClInclude Include="Headers\UDP\SocketAddressFactory.h" />
+    <ClInclude Include="Headers\UDP\SocketUtil.h" />
+    <ClInclude Include="Headers\stdafx.h" />
+    <ClInclude Include="Headers\targetver.h" />
+    <ClInclude Include="Headers\TransmissionData.h" />
+    <ClInclude Include="Headers\UDP\UDPSocket.h" />
+    <ClInclude Include="Headers\UDP\UDPSocketFactory.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AckRange.cpp" />
-    <ClCompile Include="DeliveryNotificationManager.cpp" />
-    <ClCompile Include="InFlightPacket.cpp" />
-    <ClCompile Include="InputMemoryBitStream.cpp" />
-    <ClCompile Include="MemoryStream.cpp" />
-    <ClCompile Include="OutputMemoryBitStream.cpp" />
-    <ClCompile Include="reliableudp.cpp" />
+    <ClCompile Include="Source\AckRange.cpp" />
+    <ClCompile Include="Source\DeliveryNotificationManager.cpp" />
+    <ClCompile Include="Source\InFlightPacket.cpp" />
+    <ClCompile Include="Source\InputMemoryBitStream.cpp" />
+    <ClCompile Include="Source\MemoryStream.cpp" />
+    <ClCompile Include="Source\OutputMemoryBitStream.cpp" />
+    <ClCompile Include="Source\reliableudp.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TransmissionData.cpp" />
-    <ClCompile Include="UDPSocket.cpp" />
-    <ClCompile Include="UDPSocketFactory.cpp" />
+    <ClCompile Include="Source\TransmissionData.cpp" />
+    <ClCompile Include="Source\UDP\UDPSocket.cpp" />
+    <ClCompile Include="Source\UDP\UDPSocketFactory.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

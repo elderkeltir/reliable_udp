@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "UDPSocketFactory.h"
-#include "SocketUtil.h"
+#include "UDP/UDPSocketFactory.h"
+#include "UDP/SocketUtil.h"
 
 
 UDPSocketPtr UDPSocketFactory::CreateUDPSocket(SocketAddressFamily inFamily)

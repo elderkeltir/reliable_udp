@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "UDPSocket.h"
-#include "SocketUtil.h"
+#include "UDP/UDPSocket.h"
+#include "UDP/SocketUtil.h"
 
 int UDPSocket::Bind(const SocketAddress& inBindAddress)
 {

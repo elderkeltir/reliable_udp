@@ -18,46 +18,46 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
+    <ClInclude Include="Headers\UDP\UDPSocketFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="targetver.h">
+    <ClInclude Include="Headers\UDP\UDPSocket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SocketAddress.h">
+    <ClInclude Include="Headers\UDP\SocketAddress.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SocketAddressFactory.h">
+    <ClInclude Include="Headers\UDP\SocketAddressFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SocketUtil.h">
+    <ClInclude Include="Headers\UDP\SocketUtil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UDPSocket.h">
+    <ClInclude Include="Headers\TransmissionData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UDPSocketFactory.h">
+    <ClInclude Include="Headers\OutputMemoryBitStream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MemoryStream.h">
+    <ClInclude Include="Headers\MemoryStream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OutputMemoryBitStream.h">
+    <ClInclude Include="Headers\InputMemoryBitStream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InputMemoryBitStream.h">
+    <ClInclude Include="Headers\InFlightPacket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DeliveryNotificationManager.h">
+    <ClInclude Include="Headers\DeliveryNotificationManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AckRange.h">
+    <ClInclude Include="Headers\AckRange.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InFlightPacket.h">
+    <ClInclude Include="Headers\stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TransmissionData.h">
+    <ClInclude Include="Headers\targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -65,34 +65,34 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="reliableudp.cpp">
+    <ClCompile Include="Source\UDP\UDPSocketFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UDPSocket.cpp">
+    <ClCompile Include="Source\UDP\UDPSocket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UDPSocketFactory.cpp">
+    <ClCompile Include="Source\TransmissionData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MemoryStream.cpp">
+    <ClCompile Include="Source\OutputMemoryBitStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OutputMemoryBitStream.cpp">
+    <ClCompile Include="Source\MemoryStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InputMemoryBitStream.cpp">
+    <ClCompile Include="Source\InputMemoryBitStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DeliveryNotificationManager.cpp">
+    <ClCompile Include="Source\InFlightPacket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AckRange.cpp">
+    <ClCompile Include="Source\DeliveryNotificationManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InFlightPacket.cpp">
+    <ClCompile Include="Source\AckRange.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TransmissionData.cpp">
+    <ClCompile Include="Source\reliableudp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
